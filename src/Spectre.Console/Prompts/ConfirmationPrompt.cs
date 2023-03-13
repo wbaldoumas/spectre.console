@@ -40,6 +40,11 @@ public sealed class ConfirmationPrompt : IPrompt<bool>
     public bool ShowDefaultValue { get; set; } = true;
 
     /// <summary>
+    /// Gets or sets the style in which the default value is displayed.
+    /// </summary>
+    public Style? DefaultValueStyle { get; set; }
+
+    /// <summary>
     /// Gets or sets a value indicating whether the confirmation
     /// should use case insensitive matching.
     /// </summary>
@@ -70,6 +75,7 @@ public sealed class ConfirmationPrompt : IPrompt<bool>
             .ShowChoices(ShowChoices)
             .ShowDefaultValue(ShowDefaultValue)
             .DefaultValue(DefaultValue ? Yes : No)
+            .DefaultValueStyle(DefaultValueStyle ?? "green")
             .AddChoice(Yes)
             .AddChoice(No);
 
